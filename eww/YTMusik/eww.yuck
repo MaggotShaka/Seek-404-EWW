@@ -1,0 +1,15 @@
+(defwindow yt_launcher
+  :monitor 0
+  :geometry (geometry :x "0%" :y "0%" :width "400px" :height "100px" :anchor "center")
+  :stacking "fg"
+  :focusable true
+  (yt_input))
+
+(defwidget yt_input []
+  (box :class "yt-box" :orientation "v" :space-evenly false
+    (label :text "Buscar en YT (Audio Radio)" :class "yt-title")
+    (input :class "yt-input-field"
+           ;; Solo UN :onaccept, con rutas directas
+           :onaccept "python3 /home/shaka/.config/eww/YTMusik/scripts/yt_search.py '{}' & eww close yt_launcher")
+  )
+)
